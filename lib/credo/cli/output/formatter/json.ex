@@ -14,7 +14,7 @@ defmodule Credo.CLI.Output.Formatter.JSON do
   def print_map(map) do
     map
     |> prepare_for_json()
-    |> Jason.encode!(pretty: true)
+    |> JSON.encode!()
     |> UI.puts()
   end
 

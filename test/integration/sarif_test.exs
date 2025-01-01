@@ -21,7 +21,7 @@ defmodule Credo.SarifTest do
         Credo.CLI.Output.Formatter.SARIF.print_issues(issues, exec)
       end)
 
-    sarif_map = Jason.decode!(sarif)
+    sarif_map = JSON.decode!(sarif)
 
     assert sarif_map["version"] == "2.1.0"
 

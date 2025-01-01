@@ -64,7 +64,7 @@ defmodule Credo.CLI.Output.Formatter.SARIF do
   def print_map(map) do
     map
     |> prepare_for_json()
-    |> Jason.encode!(pretty: true)
+    |> JSON.encode!()
     |> move_version_to_top()
     |> IO.puts()
   end
@@ -103,7 +103,7 @@ defmodule Credo.CLI.Output.Formatter.SARIF do
   end
 
   defp move_version_to_top(sarif) do
-    String.replace(sarif, ~s("#{@version_placeholder_json_key}": "), ~s("version": "))
+    String.replace(sarif, ~s("#{@version_placeholder_json_key}":), ~s("version":))
   end
 
   defp to_file_uri(path) do
